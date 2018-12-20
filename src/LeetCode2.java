@@ -27,9 +27,9 @@ public class LeetCode2 {
             int a1val = (a1 != null) ? a1.val : 0;
             int a2val = (a2 != null) ? a2.val : 0;
             int sum = curVal + a1val + a2val;
-            curVal = sum / 10; //curVal 是进位运算，所以要/10然后在下一次迭代中赋值给下一位
-            temp.next = new ListNode(sum % 10); //与10取模就是为了防止出现进位
-            temp = temp.next;
+            curVal = sum / 10; //curVal 是进位运算，如果需要进位，所以要/10（因为下一位比当前位大10倍）然后在下一次迭代中赋值给下一位
+            temp.next = new ListNode(sum % 10); //与10取模是在当前位的加法运算
+                    temp = temp.next;
             if(a1 != null) a1 = a1.next;
             if(a2 != null) a2 = a2.next;
         }
